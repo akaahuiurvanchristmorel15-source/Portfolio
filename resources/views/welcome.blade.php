@@ -6,7 +6,7 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&family=Revalia&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Revalia&display=swap');
 
     :root {
         --indigo:       #534AB7;
@@ -409,9 +409,10 @@
         max-width: 400px;
         margin: 0 auto 1.5rem;
     }
-    h4 {
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out forwards;
+    
+    .animated-title {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
     }
 
     /* ── RESPONSIVE ───────────────────────────────────── */
@@ -438,27 +439,18 @@
     }
 
     .float{
-    animation:floating 5s ease-in-out infinite;
+        animation:floating 5s ease-in-out infinite;
     }
 
     @keyframes floating{
-        0%,100%{
-            transform:translateY(0px);
-        }
-
-        50%{
-            transform:translateY(-15px);
-        }
+        0%,100%{ transform:translateY(0px); }
+        50%{ transform:translateY(-15px); }
     }
 
     @keyframes fadeIn {
-    from {
-        opacity: 0;
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
-    to {
-        opacity: 1;
-    }
-}
 </style>
 
 <div class="port">
@@ -466,7 +458,7 @@
     {{-- ── HERO ────────────────────────────────────── --}}
     <section class="hero">
         <div class="absolute top-16 left-1/2 -translate-x-1/2 w-full flex items-center justify-center gap-4" >
-            <h4 style="font-family: 'Climate Crisis'" class="text-3xl md:text-6xl text-white/60 text-center transform scale-y-240">DEVELOPPEUR FULL-STACK <em class="text-[#4d43b9]">WEB & MOBILE</em></h4>
+            <h4 style="font-family: 'Climate Crisis'" class="animated-title text-3xl md:text-6xl text-white/60 text-center transform scale-y-240">DEVELOPPEUR FULL-STACK <em class="text-[#4d43b9]">WEB & MOBILE</em></h4>
         </div>
         <div class="pt-25 relative z-10 flex flex-wrap items-center justify-center gap-6">
             <div class="hero-content">
@@ -487,7 +479,7 @@
 
     {{-- ── COMPÉTENCES ─────────────────────────────── --}}
     <section class="bg-white p-5 rounded-xl w-full">
-        <h4 style="font-family: 'Climate Crisis'" class="mb-8 text-center -ml-px text-3xl md:text-8xl text-black mb-6">
+        <h4 style="font-family: 'Climate Crisis'" class="animated-title mb-8 text-center -ml-px text-3xl md:text-8xl text-black mb-6">
             ABOUT ME
         </h4>
         <p class="text-center text-gray-700 mb-8 max-w-7xl mx-auto text-justify">
@@ -496,28 +488,34 @@
             Que ce soit pour développer des architectures backend complexes, concevoir des outils industriels sur-mesure ou propulser des applications mobiles intuitives, je mets un point d'honneur à écrire un code propre, performant et hautement sécurisé. Curieux de nature et orienté solutions, je vois chaque contrainte technique comme une opportunité d’innover et de dépasser les attentes.
         </p>
 
-        <h4 style="font-family: 'Climate Crisis'" class="mb-15 text-center -ml-px text-3xl md:text-8xl text-black mb-6">
+        <h4 style="font-family: 'Climate Crisis'" class="animated-title mb-15 text-center -ml-px text-3xl md:text-8xl text-black mb-6">
             MES COMPÉTENCES
         </h4>
 
         <div class="flex flex-wrap gap-10 justify-center max-w-8xl mx-auto">
-            <div class="flex -ml-px hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
-                <img src="{{ asset('laravel.svg.png') }}" alt="Laravel" class="w-40 object-contain mb-4">
+            
+            <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+                <img src="{{ asset('laravel.svg.png') }}" alt="Laravel" class="w-full h-full object-contain">
             </div>
-            <div class="flex -ml-px hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
-                <img src="{{ asset('React-icon.svg.png') }}" alt="REact" class="w-40 object-contain mb-4">
+            
+            <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+                <img src="{{ asset('React-icon.svg.png') }}" alt="React" class="w-full h-full object-contain">
             </div>
-            <div class="flex -ml-px hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
-                <img src="{{ asset('py.png') }}" alt="REact" class="w-40 object-contain mb-4">
+            
+            <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+                <img src="{{ asset('py.png') }}" alt="Python" class="w-full h-full object-contain">
             </div>
-            <div class="flex -ml-px hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
-                <img src="{{ asset('Adobe_Illustrator_CC_icon.svg.png') }}" alt="REact" class="w-40 object-contain mb-4">
+            
+            <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+                <img src="{{ asset('Adobe_Illustrator_CC_icon.svg.png') }}" alt="Illustrator" class="w-full h-full object-contain">
             </div>
-            <div class="flex -ml-px hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
-                <img src="{{ asset('Adobe_Photoshop_CC_icon.svg.png') }}" alt="REact" class="w-40 object-contain mb-4">
+            
+            <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+                <img src="{{ asset('Adobe_Photoshop_CC_icon.svg.png') }}" alt="Photoshop" class="w-full h-full object-contain">
             </div>
-            <div class="flex -ml-px hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
-                <img src="{{ asset('Canva_logo.svg.png') }}" alt="REact" class="w-40 object-contain mb-4">
+            
+            <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+                <img src="{{ asset('Canva_logo.svg.png') }}" alt="Canva" class="w-full h-full object-contain">
             </div>
 
         </div>
@@ -526,10 +524,9 @@
     {{-- ── CONTACT ──────────────────────────────────── --}}
     <section id="contact" class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-7 md:p-10 rounded-xl w-full shadow-sm">
         
-        <!-- Colonne Informations -->
         <div class="flex flex-col gap-8">
             <div>
-                <h4 style="font-family: 'Climate Crisis'" class="text-3xl md:text-5xl text-black mb-4">
+                <h4 style="font-family: 'Climate Crisis'" class="animated-title text-3xl md:text-5xl text-black mb-4">
                     CONTACTEZ-MOI
                 </h4>
                 <p class="text-gray-600 text-sm md:text-base leading-relaxed text-justify">
@@ -538,7 +535,6 @@
             </div>
 
             <div class="flex flex-col gap-5 mt-2">
-                <!-- Localisation -->
                 <div class="flex items-center gap-4 group cursor-pointer">
                     <div class="w-14 h-14 rounded-full bg-[#EEEDFE] text-[#534AB7] flex items-center justify-center text-2xl transition duration-300 group-hover:scale-110">
                         <i class='bx bx-map'></i>
@@ -549,34 +545,31 @@
                     </div>
                 </div>
 
-                <!-- Email -->
                 <div class="flex items-center gap-4 group cursor-pointer">
                     <div class="w-14 h-14 rounded-full bg-[#EAF3DE] text-[#3B6D11] flex items-center justify-center text-2xl transition duration-300 group-hover:scale-110">
                         <i class='bx bx-envelope'></i>
                     </div>
                     <div>
                         <span class="block text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1">Email</span>
-                        <a href="mailto:contact@christaka.com" class="text-[#0f0e1a] font-medium hover:text-[#534AB7] transition">akaahuiurvanchristmorel@gmail.com</a>
+                        <a href="mailto:akaahuiurvanchristmorel@gmail.com" class="text-[#0f0e1a] font-medium hover:text-[#534AB7] transition">contact@gmail.com</a>
                     </div>
                 </div>
 
-                <!-- Téléphone -->
                 <div class="flex items-center gap-4 group cursor-pointer">
                     <div class="w-14 h-14 rounded-full bg-[#E6F1FB] text-[#185FA5] flex items-center justify-center text-2xl transition duration-300 group-hover:scale-110">
                         <i class='bx bx-phone'></i>
                     </div>
                     <div>
                         <span class="block text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1">Téléphone</span>
-                        <a href="tel:+2250000000000" class="text-[#0f0e1a] font-medium hover:text-[#534AB7] transition">+225 01 50 66 37 44</a>
+                        <a href="tel:+2250150663744" class="text-[#0f0e1a] font-medium hover:text-[#534AB7] transition">+225 01 50 66 37 44</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Colonne Formulaire -->
         <div class="bg-gray-50 p-6 md:p-8 rounded-[20px] border border-gray-100 shadow-sm">
             <form action="#" method="POST" class="flex flex-col gap-5">
-                @csrf {{-- Protection Laravel obligatoire pour les formulaires --}}
+                @csrf 
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div class="flex flex-col gap-1.5">
