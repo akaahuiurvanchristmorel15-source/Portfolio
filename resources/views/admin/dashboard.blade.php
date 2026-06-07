@@ -5,6 +5,30 @@
 
 @section('content')
 
+{{-- Styles réactifs locaux pour le Dashboard --}}
+<style>
+    .dashboard-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    /* Passage en 2 colonnes sur les écrans d'ordinateurs (Desktop) */
+    @media (min-width: 992px) {
+        .dashboard-container {
+            grid-template-columns: 2fr 1fr;
+        }
+    }
+
+    /* Sécurité pour le défilement du tableau sur mobile */
+    .table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+</style>
+
 <div class="breadcrumb">
     <i class='bx bx-home-alt'></i>
     <span style="color:#1a1a2e;font-weight:600">Tableau de bord</span>
@@ -12,8 +36,8 @@
 
 {{-- Salutation --}}
 <div style="margin-bottom:2rem">
-    <h1 style="font-family:'Syne',sans-serif;font-size:26px;font-weight:800;line-height:1.2">
-        Bonjour, {{ Auth::user()->name ?? 'Administrateur' }} 👋
+    <h1 style="font-family:'Syne',sans-serif;font-size: calc(20px + 0.5vw);font-weight:800;line-height:1.2">
+        Bonjour, {{ Auth::user()->name ?? 'Administrateur' }}
     </h1>
     <p style="font-size:14px;color:#888;margin-top:4px">
         {{ now()->isoFormat('dddd D MMMM YYYY') }} · Voici un aperçu de vos données.
@@ -21,7 +45,7 @@
 </div>
 
 {{-- Stats --}}
-<div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:2rem">
+<div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem">
     <div class="stat-card">
         <div class="stat-card-icon"><i class='bx bx-grid-alt'></i></div>
         <div class="stat-card-val">{{ $totalApps }}</div>
@@ -44,7 +68,8 @@
     </div>
 </div>
 
-<div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;align-items:start">
+{{-- Conteneur Principal Responsive --}}
+<div class="dashboard-container">
 
     {{-- Applications récentes --}}
     <div>
@@ -82,7 +107,7 @@
                                     @endif
                                 </div>
                             </td>
-                            <td style="font-weight:600;font-size:13.5px">{{ $app->nom }}</td>
+                            <td style="font-weight:600;font-size:13.5px;white-space:nowrap">{{ $app->nom }}</td>
                             <td><span class="badge badge-indigo">{{ $app->category->nom ?? '—' }}</span></td>
                             <td>
                                 @if($app->actif)
@@ -91,7 +116,7 @@
                                     <span class="badge badge-red">Inactif</span>
                                 @endif
                             </td>
-                            <td style="font-size:12px;color:#aaa;font-family:'DM Mono',monospace">
+                            <td style="font-size:12px;color:#aaa;font-family:'DM Mono',monospace;white-space:nowrap">
                                 {{ $app->created_at->format('d/m/Y') }}
                             </td>
                         </tr>

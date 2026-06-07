@@ -311,10 +311,14 @@
 
     <nav class="sidebar-nav">
         <span class="nav-section-label">Principal</span>
+        <a href="{{ route('admin.dashboard') }}"
+           class="nav-link {{ request()->routeIs('admin.dashboard.*') ? 'active' : '' }}">
+            <i class='bx bx-home-alt'></i> Tableau de bord
+        </a>
 
         <a href="{{ route('admin.applications.index') }}"
            class="nav-link {{ request()->routeIs('admin.applications.*') ? 'active' : '' }}">
-            <i class='bx bx-grid-alt'></i> Applications
+            <i class='bx bx-package'></i> Applications
         </a>
 
         <a href="{{ route('admin.categories.index') }}"
