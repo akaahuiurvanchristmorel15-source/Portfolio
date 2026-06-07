@@ -52,7 +52,7 @@ Route::middleware('guest')->group(function () {
 
 // LOGOUT
 Route::post('/logout', [LoginController::class, 'destroy'])
-    ->middleware('auth')
+    ->middleware('auth') // middleware personnalisé pour rediriger les invités vers la page d'accueil
     ->name('logout');
 
 

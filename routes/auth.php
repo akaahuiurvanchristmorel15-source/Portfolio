@@ -24,7 +24,7 @@ Route::middleware('guest')->group(function () {
 
 /* ── Déconnexion : accès uniquement si connecté ── */
 Route::post('/logout', [LoginController::class, 'destroy'])
-    ->middleware('auth')
+    ->middleware('welcome') // middleware personnalisé pour rediriger les invités vers la page d'accueil
     ->name('logout');
 
 /*
