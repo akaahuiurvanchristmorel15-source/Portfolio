@@ -339,7 +339,7 @@
     </nav>
 
     <div class="sidebar-footer">
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button type="submit" class="nav-link" style="width:100%;background:none;border:none;cursor:pointer;text-align:left;">
                 <i class='bx bx-log-out'></i> Déconnexion
