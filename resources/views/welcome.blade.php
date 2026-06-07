@@ -488,7 +488,7 @@
             Que ce soit pour développer des architectures backend complexes, concevoir des outils industriels sur-mesure ou propulser des applications mobiles intuitives, je mets un point d'honneur à écrire un code propre, performant et hautement sécurisé. Curieux de nature et orienté solutions, je vois chaque contrainte technique comme une opportunité d’innover et de dépasser les attentes.
         </p>
 
-        <h4 style="font-family: 'Climate Crisis'" class="animated-title mb-15 text-center -ml-px text-3xl md:text-8xl text-black mb-6">
+        <h4 style="font-family: 'Climate Crisis'" class="animated-title mb-15 text-center -ml-px text-2xl md:text-8xl text-black mb-6">
             MES COMPÉTENCES
         </h4>
 
