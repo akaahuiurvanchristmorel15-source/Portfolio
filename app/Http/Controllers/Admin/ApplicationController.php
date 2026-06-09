@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Application;
 use App\Models\Categorie;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ApplicationController extends Controller
 {
@@ -40,17 +41,28 @@ class ApplicationController extends Controller
             'nom' => 'required|string|max:255|unique:applications,nom',
             'lien' => 'required|url',
             'categorie_id' => 'required|exists:categories,id',
+            'icone' => 'nullable|file|image|mimes:png,svg,jpg,jpeg,webp|max:512',
         ], [
             'nom.unique' => 'Une application portant ce nom existe déjà.',
             'lien.url' => 'Le format du lien est invalide.',
         ]);
 
-        Application::create([
+        $data = [
             'nom' => $request->nom,
             'slug' => Str::slug($request->nom),
             'lien' => $request->lien,
             'categorie_id' => $request->categorie_id,
-        ]);
+        ];
+
+        // Traitement de l'icône
+        if ($request->hasFile('icone')) {
+            $file = $request->file('icone');
+            $filename = Str::slug($request->nom) . '-' . time() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('icones', $filename, 'public');
+            $data['icone'] = $path;
+        }
+
+        Application::create($data);
 
         return redirect()
             ->route('admin.applications.index')
@@ -74,21 +86,44 @@ class ApplicationController extends Controller
     public function update(Request $request, Application $application)
     {
         $request->validate([
-            // Le 'ignore' permet d'éviter que Laravel bloque si on garde le même nom durant la modification
             'nom' => 'required|string|max:255|unique:applications,nom,' . $application->id,
             'lien' => 'required|url',
             'categorie_id' => 'required|exists:categories,id',
+            'icone' => 'nullable|file|image|mimes:png,svg,jpg,jpeg,webp|max:512',
         ], [
             'nom.unique' => 'Une application portant ce nom existe déjà.',
             'lien.url' => 'Le format du lien est invalide.',
         ]);
 
-        $application->update([
+        $data = [
             'nom' => $request->nom,
             'slug' => Str::slug($request->nom),
             'lien' => $request->lien,
             'categorie_id' => $request->categorie_id,
-        ]);
+        ];
+
+        // Vérifier si on doit supprimer l'icône existante
+        if ($request->has('supprimer_icone') && $request->supprimer_icone) {
+            if ($application->icone && Storage::disk('public')->exists($application->icone)) {
+                Storage::disk('public')->delete($application->icone);
+            }
+            $data['icone'] = null;
+        }
+
+        // Traitement d'une nouvelle icône
+        if ($request->hasFile('icone')) {
+            // Supprimer l'ancienne icône si elle existe
+            if ($application->icone && Storage::disk('public')->exists($application->icone)) {
+                Storage::disk('public')->delete($application->icone);
+            }
+
+            $file = $request->file('icone');
+            $filename = Str::slug($request->nom) . '-' . time() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('icones', $filename, 'public');
+            $data['icone'] = $path;
+        }
+
+        $application->update($data);
 
         return redirect()
             ->route('admin.applications.index')
