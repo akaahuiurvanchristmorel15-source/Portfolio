@@ -489,7 +489,7 @@
         <div class="flex flex-wrap gap-10 justify-center max-w-8xl mx-auto">
             
             <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
-                <img src="{{ asset('6.png') }}" alt="" class="w-full h-full object-contain">
+                <img src="{{ asset('7.webp') }}" alt="" class="w-full h-full object-contain">
             </div>
             
             <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
