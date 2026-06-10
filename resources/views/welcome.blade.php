@@ -422,7 +422,7 @@
             padding: 1.75rem;
         }
         .hero-content { 
-            margin-top: 25px;
+            margin-top: 40px;
         }
         .hero-avatar { display: none; }
         .skills-grid,
