@@ -512,6 +512,10 @@
                 <img src="{{ asset('Canva_logo.svg.png') }}" alt="Canva" class="w-full h-full object-contain">
             </div>
 
+            <div class="flex w-40 h-32 items-center justify-center hover:translate-y-[-10px] transition-transform duration-300 ease-in-out">
+                <img src="{{ asset('Laravel.png') }}" alt="Laravel" class="w-full h-full object-contain">
+            </div>
+
         </div>
     </section>
 
