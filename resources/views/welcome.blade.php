@@ -432,11 +432,6 @@
     @media (max-width: 500px) {
         .stats { grid-template-columns: repeat(3, 1fr); }
     }
-    @media (max-width: 1200px) {
-        .hero-content {
-            display: none;
-        }
-    }
 
     .float{
         animation:floating 5s ease-in-out infinite;
@@ -473,7 +468,6 @@
                     </a>
                 </div>
             </div>
-            <img src="{{ asset('2.png') }}" alt="Avatar" class="float mt-0 md:mt-[-180px] z-10">
         </div>
     </section>
 
