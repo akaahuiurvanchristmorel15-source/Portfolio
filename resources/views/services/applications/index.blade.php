@@ -235,11 +235,11 @@
                 <a href="{{ $app->lien }}" target="_blank" class="app-card" data-category="{{ $app->categorie_id }}" data-name="{{ strtolower($app->nom) }}">
                     
                     <div class="app-icon-wrapper">
-                        @if($app->icone)
-                            <img src="{{ asset('storage/' . $app->icone) }}" alt="{{ $app->nom }}" class="w-8 h-8 object-contain">
+                        @if($app->icone_url)
+                            <img src="{{ $app->icone_url }}" alt="{{ $app->nom }}" style="width:32px;height:32px;object-fit:contain;border-radius:4px">
                         @else
                             {{-- Icône par défaut si pas d'image (utilise la première lettre du nom) --}}
-                            <span class="font-bold font-['Syne']">{{ substr($app->nom, 0, 1) }}</span>
+                            <span class="font-bold font-['Syne']" style="font-size:20px">{{ $app->initiale }}</span>
                         @endif
                     </div>
                     
