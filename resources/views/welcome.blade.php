@@ -421,6 +421,9 @@
             grid-template-columns: 1fr;
             padding: 1.75rem;
         }
+        .hero-content { 
+            margin-top: 25px;
+        }
         .hero-avatar { display: none; }
         .skills-grid,
         .projects-grid,
