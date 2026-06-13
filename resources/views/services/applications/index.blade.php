@@ -236,10 +236,10 @@
                     
                     <div class="app-icon-wrapper">
                         @if($app->icone_url)
-                            <img src="{{ $app->icone_url }}" alt="{{ $app->nom }}" style="width:32px;height:32px;object-fit:contain;border-radius:4px">
+                            <img src="{{ Storage::url($app->icone_url) }}" alt="{{ $app->nom }}"
+                                style="width:28px;height:28px;object-fit:contain">
                         @else
-                            {{-- Icône par défaut si pas d'image (utilise la première lettre du nom) --}}
-                            <span class="font-bold font-['Syne']" style="font-size:20px">{{ $app->initiale }}</span>
+                            {{ $app->initiale }}
                         @endif
                     </div>
                     
