@@ -85,8 +85,8 @@
                     <td data-label="Icône">
                         <div class="icon-preview-box" style="width:40px;height:40px;font-size:18px;display:flex;align-items:center;justify-content:center;">
                             @if($app->icone_url)
-                                <img src="{{ $app->icone_url }}" alt="{{ $app->nom }}"
-                                     style="width:28px;height:28px;object-fit:contain">
+                                <img src="{{ Storage::url($app->icone_url) }}" alt="{{ $app->nom }}"
+                                    style="width:28px;height:28px;object-fit:contain">
                             @else
                                 {{ $app->initiale }}
                             @endif
